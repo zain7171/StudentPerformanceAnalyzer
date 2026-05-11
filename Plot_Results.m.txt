@@ -1,0 +1,30 @@
+function Plot_Results(marks)
+avg = sum(marks) / length(marks);
+
+% Count grades
+cA=0; cB=0; cC=0; cF=0;
+for i = 1:length(marks)
+    g = Grade_Classifier(marks(i));
+    if g == 'A', cA = cA+1;
+    elseif g == 'B', cB = cB+1;
+    elseif g == 'C', cC = cC+1;
+    else, cF = cF+1;
+    end
+end
+
+subplot(1, 2, 1);
+bar(marks);
+hold on
+plot([0.5, length(marks)+0.5], [avg, avg], '--r')
+hold off
+title('Student Scores');
+xlabel('Student');
+ylabel('Marks');
+legend('Marks', 'Average');
+grid on
+
+subplot(1, 2, 2);
+pie([cA, cB, cC, cF]);
+title('Grade Distribution');
+legend('A', 'B', 'C', 'F');
+end
