@@ -1,0 +1,11 @@
+function grade = Grade_Classifier(mark)
+if mark >= 85
+    grade = 'A';
+elseif mark >= 70
+    grade = 'B';
+elseif mark >= 55
+    grade = 'C';
+else
+    grade = 'F';
+end
+end
